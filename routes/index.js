@@ -3,13 +3,6 @@ var config = require('clickberry-config');
 var signalService = require('../lib/signals-service');
 var validation = require('../middleware/validation-mw');
 var queryParser = require('../middleware/query-parser-mw');
-var Bus = require('../lib/bus-service');
-var bus = new Bus({
-    mode: config.get('node:env'),
-    address: config.get('nsqd:address'),
-    port: config.get('nsqd:port')
-});
-
 
 var router = express.Router();
 
