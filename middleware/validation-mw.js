@@ -1,4 +1,5 @@
 var error = require('clickberry-http-errors');
+var config = require('clickberry-config');
 
 exports.checkAccess = function (accessPayloadName, relationPayloadName) {
     return function (req, res, next) {
@@ -23,5 +24,20 @@ exports.checkParams = function (paramName, relationPayloadName) {
         }
 
         next();
+    };
+};
+
+exports.checkSignalId = function (paramName) {
+    var allowedIds = config.getArray('signal:allowed');
+    return function (req, res, next) {
+        var isAllow = allowedIds.some(function (item) {
+            return item == req.params[paramName];
+        });
+
+        if (isAllow) {
+            next();
+        } else {
+            next(new error.Forbidden());
+        }
     };
 };

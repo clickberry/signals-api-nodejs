@@ -1,6 +1,6 @@
 {
   "name": "clickberry-signals-api",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "main": "app.js",
   "description": "Signals micro-service on Node.js",
   "scripts": {
@@ -29,6 +29,7 @@
     "cassandra-driver": "^3.0.1",
     "clickberry-config": "clickberry/config-nodejs.git#master",
     "clickberry-http-errors": "clickberry/http-errors-nodejs.git#master",
+    "clickberry-nsq-publisher": "clickberry/nsq-publisher-nodejs.git#master",
     "debug": "~2.2.0",
     "express": "~4.12.4",
     "jsonwebtoken": "^5.0.4",
