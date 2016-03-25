@@ -78,7 +78,7 @@ Add signal by ID.
 | StatusCode | 201                                                                |
 
 ## GET /:signalId/hours?start=&finish=&top=
-Gets time series of signals per hour by signal ID for user owner. **Only for IDs from [Environment Variables](#environment-variables) *SIGNAL_ALLOWED*.**
+Gets time series of signals per hour by signal ID for user owner.
 ### Request
 #### Header
 | Param   | Value |
@@ -100,7 +100,7 @@ Gets time series of signals per hour by signal ID for user owner. **Only for IDs
 | Body | List of [Series Dto](#series-dto)   |
 
 ## GET /:signalId/days?start=&finish=&top=
-Gets time series of signals per day by signal ID for user owner. **Only for IDs from [Environment Variables](#environment-variables) *SIGNAL_ALLOWED*.**
+Gets time series of signals per day by signal ID for user owner. 
 ### Request
 #### Header
 | Param   | Value |
@@ -122,7 +122,7 @@ Gets time series of signals per day by signal ID for user owner. **Only for IDs 
 | Body | List of [Series Dto](#series-dto)   |
 
 ## GET /:signalId/weeks?start=&finish=&top=
-Gets time series of signals per week by signal ID for user owner. **Only for IDs from [Environment Variables](#environment-variables) *SIGNAL_ALLOWED*.**
+Gets time series of signals per week by signal ID for user owner.
 ### Request
 #### Header
 | Param   | Value |
@@ -144,7 +144,7 @@ Gets time series of signals per week by signal ID for user owner. **Only for IDs
 | Body | List of [Series Dto](#series-dto)   |
 
 ## GET /:signalId/months?start=&finish=&top=
-Gets time series of signals per month by signal ID for user owner. **Only for IDs from [Environment Variables](#environment-variables) *SIGNAL_ALLOWED*.**
+Gets time series of signals per month by signal ID for user owner. 
 ### Request
 #### Header
 | Param   | Value |
@@ -165,72 +165,19 @@ Gets time series of signals per month by signal ID for user owner. **Only for ID
 | StatusCode | 200                           |
 | Body | List of [Series Dto](#series-dto)   |
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-## GET /all?last=&top=
-Gets all public projects from all users.
-
+## GET /:signalId/?ids=
+Gets list of signal counters for list of *ids*. **Only for *signalId* from [Environment Variables](#environment-variables) *SIGNAL_ALLOWED*.**
 ### Request
-### Query Param
+### Query Params
 | Param    | Description |
 |----------|-------------|
-| last    |  Last project ID since which will finding projects |
-| top    |  Quantity projects for getting|
+| ids    |  List of comma separated owner IDs. Max IDs quantity - 50. (Ex. 56f5044d05933312008564e0,56f5044d05933312008565f3,56f5044d0593331200856ge2)|
 
 ### Response
-| HTTP       |      Value                                                         |
-|------------|--------------------------------------------------------------------|
-| StatusCode | 200                                                            |
-| Body | List of [Project Dto](#project-dto)                                                            |
-
-## GET /:projectId
-Gets project by id. Anonymous user gets project if *isPrivate=false*.
-
-### Request
-#### Header
-| Param   | Value ||
-|----------|-------------|---|
-| Authorization     | "JWT [accessToken]" |***Optional***|
-
-### Response
-| HTTP       |      Value                                                         |
-|------------|--------------------------------------------------------------------|
-| StatusCode | 200                                                            |
-| Body | [Project Dto](#project-dto)                                                            |
-
-## DELETE /:projectId
-Removes user project by id.
-
-### Request
-#### Header
-| Param   | Value |
-|----------|-------------|
-| Authorization     | "JWT [accessToken]" |
-
-### Response
-| HTTP       |      Value                                                         |
-|------------|--------------------------------------------------------------------|
-| StatusCode | 200                                                            |
-
-## GET /user/:userId
-Gets all public user projects by userId.
-
-### Response
-| HTTP       |      Value                                                         |
-|------------|--------------------------------------------------------------------|
-| StatusCode | 200                                                            |
-| Body | List of [Project Dto](#project-dto)                                                            |
+| HTTP       |      Value                    |
+|------------|-------------------------------|
+| StatusCode | 200                           |
+| Body | List of [Signal Dto](#signal-dto)   |
 
 # License
 Source code is under GNU GPL v3 [license](LICENSE).
