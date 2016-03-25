@@ -6,7 +6,7 @@ exports.checkAccess = function (accessPayloadName, relationPayloadName) {
         var accessPayload = req[accessPayloadName];
         var relationPayload = req[relationPayloadName];
 
-        if (accessPayload.id != relationPayload.userId) {
+        if (accessPayload.userId != relationPayload.userId) {
             return next(new error.Forbidden());
         }
 
