@@ -30,6 +30,7 @@ NSQD_ADDRESS | bus.yourdomain.com | A hostname or an IP address of the NSQD runn
 NSQD_PORT | 4150 | A TCP port number of the NSQD running instance to publish events.
 CASSANDRA_NODES | cassandra.node1.io,cassandra.node2.io | Cassandra cluster nodes
 CASSANDRA_KEYSPACE | signals | Cassandra keyspce.
+SIGNAL_ALLOWED |views,reshares | Signal IDs for time series.
 PORT | 8080 | Container port.
 
 # Events
@@ -62,7 +63,6 @@ Heart beat for loadbalncer.
 |------------|--------------------------------------------------------------------|
 | StatusCode | 2010                                                               |
 
-
 ## POST /:signalId
 Add signal by ID.
 
@@ -78,7 +78,7 @@ Add signal by ID.
 | StatusCode | 201                                                                |
 
 ## GET /:signalId/hours?start=&finish=&top=
-Gets time series of signals per hour.
+Gets time series of signals per hour by signal ID for user owner. **Only for [Environment Variables](#environment-variables) *SIGNAL_ALLOWED*.**
 ### Request
 #### Header
 | Param   | Value |
@@ -89,8 +89,8 @@ Gets time series of signals per hour.
 ### Query Params
 | Param    | Description |
 |----------|-------------|
-| start    |  Snterval start |
-| finish    |  The end of interval|
+| start    |  Snterval start (Ex. 2016-01-26T15:42:19Z)|
+| finish    |  The end of interval (Ex. 2016-03-26T15:42:19Z)|
 | top    |  Quantity series for getting|
 
 ### Response
@@ -98,6 +98,77 @@ Gets time series of signals per hour.
 |------------|-------------------------------|
 | StatusCode | 200                           |
 | Body | List of [Series Dto](#series-dto)   |
+
+## GET /:signalId/days?start=&finish=&top=
+Gets time series of signals per day by signal ID for user owner.
+### Request
+#### Header
+| Param   | Value |
+|----------|-------------|
+| Authorization     | "JWT [accessToken]" |
+| relation-token     | "[relationToken]" |
+
+### Query Params
+| Param    | Description |
+|----------|-------------|
+| start    |  Snterval start (Ex. 2016-01-26T15:42:19Z)|
+| finish    |  The end of interval (Ex. 2016-03-26T15:42:19Z)|
+| top    |  Quantity series for getting|
+
+### Response
+| HTTP       |      Value                    |
+|------------|-------------------------------|
+| StatusCode | 200                           |
+| Body | List of [Series Dto](#series-dto)   |
+
+## GET /:signalId/weeks?start=&finish=&top=
+Gets time series of signals per week by signal ID for user owner.
+### Request
+#### Header
+| Param   | Value |
+|----------|-------------|
+| Authorization     | "JWT [accessToken]" |
+| relation-token     | "[relationToken]" |
+
+### Query Params
+| Param    | Description |
+|----------|-------------|
+| start    |  Snterval start (Ex. 2016-01-26T15:42:19Z)|
+| finish    |  The end of interval (Ex. 2016-03-26T15:42:19Z)|
+| top    |  Quantity series for getting|
+
+### Response
+| HTTP       |      Value                    |
+|------------|-------------------------------|
+| StatusCode | 200                           |
+| Body | List of [Series Dto](#series-dto)   |
+
+## GET /:signalId/months?start=&finish=&top=
+Gets time series of signals per month by signal ID for user owner.
+### Request
+#### Header
+| Param   | Value |
+|----------|-------------|
+| Authorization     | "JWT [accessToken]" |
+| relation-token     | "[relationToken]" |
+
+### Query Params
+| Param    | Description |
+|----------|-------------|
+| start    |  Snterval start (Ex. 2016-01-26T15:42:19Z)|
+| finish    |  The end of interval (Ex. 2016-03-26T15:42:19Z)|
+| top    |  Quantity series for getting|
+
+### Response
+| HTTP       |      Value                    |
+|------------|-------------------------------|
+| StatusCode | 200                           |
+| Body | List of [Series Dto](#series-dto)   |
+
+
+
+
+
 
 
 
