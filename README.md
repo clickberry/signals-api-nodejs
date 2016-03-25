@@ -78,7 +78,7 @@ Add signal by ID.
 | StatusCode | 201                                                                |
 
 ## GET /:signalId/hours?start=&finish=&top=
-Gets time series of signals per hour by signal ID for user owner. **Only for [Environment Variables](#environment-variables) *SIGNAL_ALLOWED*.**
+Gets time series of signals per hour by signal ID for user owner. **Only for IDs from [Environment Variables](#environment-variables) *SIGNAL_ALLOWED*.**
 ### Request
 #### Header
 | Param   | Value |
@@ -100,7 +100,7 @@ Gets time series of signals per hour by signal ID for user owner. **Only for [En
 | Body | List of [Series Dto](#series-dto)   |
 
 ## GET /:signalId/days?start=&finish=&top=
-Gets time series of signals per day by signal ID for user owner.
+Gets time series of signals per day by signal ID for user owner. **Only for IDs from [Environment Variables](#environment-variables) *SIGNAL_ALLOWED*.**
 ### Request
 #### Header
 | Param   | Value |
@@ -122,7 +122,7 @@ Gets time series of signals per day by signal ID for user owner.
 | Body | List of [Series Dto](#series-dto)   |
 
 ## GET /:signalId/weeks?start=&finish=&top=
-Gets time series of signals per week by signal ID for user owner.
+Gets time series of signals per week by signal ID for user owner. **Only for IDs from [Environment Variables](#environment-variables) *SIGNAL_ALLOWED*.**
 ### Request
 #### Header
 | Param   | Value |
@@ -144,7 +144,7 @@ Gets time series of signals per week by signal ID for user owner.
 | Body | List of [Series Dto](#series-dto)   |
 
 ## GET /:signalId/months?start=&finish=&top=
-Gets time series of signals per month by signal ID for user owner.
+Gets time series of signals per month by signal ID for user owner. **Only for IDs from [Environment Variables](#environment-variables) *SIGNAL_ALLOWED*.**
 ### Request
 #### Header
 | Param   | Value |
