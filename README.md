@@ -166,7 +166,7 @@ Gets time series of signals per month by signal ID for user owner.
 | Body | List of [Series Dto](#series-dto)   |
 
 ## GET /:signalId/?ids=
-Gets list of signal counters for list of *ids*. **Only for *signalId* from [Environment Variables](#environment-variables) *SIGNAL_ALLOWED*.**
+Gets list of signal counters for list of owners IDs. **Only for *signalId* from [Environment Variables](#environment-variables) *SIGNAL_ALLOWED*.**
 ### Request
 ### Query Params
 | Param    | Description |
